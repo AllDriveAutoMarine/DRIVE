@@ -24,26 +24,31 @@
     </div>
 
     <nav class="nav">
-      <!-- Menu button (top right) -->
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="app-menu">
+      <!-- 3-line menu button -->
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
         ☰
       </button>
     </nav>
   </header>
 
-  <!-- App-style menu panel -->
-  <aside class="app-menu" id="app-menu" aria-hidden="true">
-    <div class="app-menu-header">
-      <div class="app-menu-title">
-        <div class="app-menu-brand">DRIVE</div>
-        <div class="app-menu-sub">Jump to a section</div>
+  <!-- Sidebar Drawer (slides out) -->
+  <aside class="sidebar" id="sidebar" aria-hidden="true">
+    <div class="sidebar-header">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">DRIVE</div>
+        <div class="sidebar-sub">Jump to a section</div>
       </div>
 
-      <button class="app-menu-close" id="app-menu-close" aria-label="Close menu">✕</button>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">✕</button>
     </div>
 
-    <!-- FULL section list (static, no guessing) -->
-    <ul class="app-menu-links" id="app-menu-links">
+    <ul class="sidebar-links" id="sidebar-links">
       <li><a href="#hero" data-section-id="hero">Home</a></li>
       <li><a href="#email" data-section-id="email">Free Checklist</a></li>
       <li><a href="#courier-styles" data-section-id="courier-styles">Courier Styles</a></li>
@@ -53,14 +58,14 @@
       <li><a href="#contact" data-section-id="contact">Contact</a></li>
     </ul>
 
-    <div class="app-menu-footer">
-      <a class="btn primary" href="#pricing" data-close-menu="true">Get the $5 Starter Pack</a>
-      <a class="btn secondary" href="#courier-styles" data-close-menu="true">Start with a lane</a>
+    <div class="sidebar-footer">
+      <a class="btn primary" href="#pricing">Get the $5 Starter Pack</a>
+      <a class="btn secondary" href="#courier-styles">Pick a lane</a>
     </div>
   </aside>
 
-  <!-- Backdrop -->
-  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
 
   <!-- Hero -->
   <section id="hero" class="hero">
@@ -85,9 +90,9 @@
         <div class="trust-pill">No fluff</div>
       </div>
 
-      <!-- Quick outbound links -->
       <div class="quick-links">
         <a class="btn ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+        <a class="btn ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
         <a class="btn ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
         <a class="btn ghost" href="https://www.indeed.com/" target="_blank" rel="noopener">Indeed</a>
       </div>
@@ -113,8 +118,9 @@
 
       <div class="inline-links">
         <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie info</a>
+        <a class="btn small ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
         <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
-        <a class="btn small ghost" href="https://www.indeed.com/" target="_blank" rel="noopener">Search Indeed</a>
+        <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
       </div>
     </form>
   </section>
@@ -149,7 +155,7 @@
         </ul>
         <div class="card-actions">
           <a class="btn small primary" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">
-            Sign up / learn Roadie
+            Roadie driver page
           </a>
         </div>
       </article>
@@ -163,6 +169,11 @@
           <li>Workflow matters</li>
           <li>Repeatable routine</li>
         </ul>
+        <div class="card-actions">
+          <a class="btn small primary" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">
+            Instacart shopper page
+          </a>
+        </div>
       </article>
 
       <article class="card">
@@ -214,11 +225,11 @@
       </article>
     </div>
 
-    <!-- Extra lane buttons -->
     <div class="lane-buttons">
-      <a class="btn ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie Driver Page</a>
-      <a class="btn ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Start on Fiverr</a>
-      <a class="btn ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Courier jobs on Indeed</a>
+      <a class="btn ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+      <a class="btn ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
+      <a class="btn ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
+      <a class="btn ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
     </div>
   </section>
 
@@ -251,6 +262,7 @@
 
     <div class="lane-buttons">
       <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+      <a class="btn small ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
       <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
       <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
     </div>
@@ -259,9 +271,7 @@
   <!-- Pricing -->
   <section id="pricing" class="section">
     <h2>Low-Cost Digital Products</h2>
-    <p class="section-intro">
-      Start cheap. Get organized. Upgrade only if you need it.
-    </p>
+    <p class="section-intro">Start cheap. Get organized. Upgrade only if you need it.</p>
 
     <div class="pricing-grid">
       <article class="price-card">
@@ -274,15 +284,12 @@
           <li>Mileage + expense checklist</li>
         </ul>
 
-        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_STARTER" target="_blank" rel="noopener">
-          Buy on Gumroad
-        </a>
-        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_STARTER" target="_blank" rel="noopener">
-          Buy with Stripe
-        </a>
+        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_STARTER" target="_blank" rel="noopener">Buy on Gumroad</a>
+        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_STARTER" target="_blank" rel="noopener">Buy with Stripe</a>
 
         <div class="inline-links">
-          <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Try Roadie</a>
+          <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+          <a class="btn small ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
           <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
         </div>
       </article>
@@ -298,16 +305,13 @@
           <li>Client scripts (text/email)</li>
         </ul>
 
-        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_TOOLKIT" target="_blank" rel="noopener">
-          Buy on Gumroad
-        </a>
-        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_TOOLKIT" target="_blank" rel="noopener">
-          Buy with Stripe
-        </a>
+        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_TOOLKIT" target="_blank" rel="noopener">Buy on Gumroad</a>
+        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_TOOLKIT" target="_blank" rel="noopener">Buy with Stripe</a>
 
         <div class="inline-links">
-          <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr ideas</a>
-          <a class="btn small ghost" href="https://www.indeed.com/" target="_blank" rel="noopener">Indeed</a>
+          <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
+          <a class="btn small ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
+          <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
         </div>
       </article>
 
@@ -321,22 +325,19 @@
           <li>Fix your tracking setup</li>
         </ul>
 
-        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_CALL" target="_blank" rel="noopener">
-          Book via Gumroad
-        </a>
-        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_CALL" target="_blank" rel="noopener">
-          Book with Stripe
-        </a>
+        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_CALL" target="_blank" rel="noopener">Book via Gumroad</a>
+        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_CALL" target="_blank" rel="noopener">Book with Stripe</a>
 
         <div class="inline-links">
           <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+          <a class="btn small ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
           <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
         </div>
       </article>
     </div>
 
     <p class="fineprint">
-      Tip: Use either Gumroad OR Stripe for each product (you don’t need both). Replace the placeholder links above.
+      Tip: Use either Gumroad OR Stripe for each product (you don’t need both). Replace placeholder links above.
     </p>
   </section>
 
@@ -370,8 +371,9 @@
 
     <div class="lane-buttons">
       <a class="btn ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+      <a class="btn ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
       <a class="btn ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
-      <a class="btn ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed courier jobs</a>
+      <a class="btn ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
     </div>
   </section>
 
@@ -392,6 +394,7 @@
 
         <div class="inline-links">
           <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+          <a class="btn small ghost" href="https://shoppers.instacart.com/" target="_blank" rel="noopener">Instacart</a>
           <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
           <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
         </div>
