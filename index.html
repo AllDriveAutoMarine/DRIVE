@@ -6,64 +6,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="DRIVE helps new couriers learn how to earn, organize, and grow using simple systems, tools, and real-world experience."
+    content="DRIVE helps new couriers start earning fast and stay organized with simple systems, low-cost tools, and practical coaching—no hype."
   />
+
+  <!-- Open Graph (better CTR when shared) -->
+  <meta property="og:title" content="DRIVE | Start Courier Work + Build a 1099 System" />
+  <meta property="og:description" content="Pick a lane, earn your first cash, and track mileage/expenses like a pro. Low-cost templates + coaching." />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Header / Nav -->
   <header class="site-header">
-    <div class="logo">
+    <div class="logo" aria-label="DRIVE home">
       <span class="logo-main">DRIVE</span>
       <span class="logo-sub">Courier Education & Digital Tools</span>
     </div>
 
     <nav class="nav">
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#courier-styles">Courier Styles</a></li>
-        <li><a href="#tools">Digital Tools</a></li>
-        <li><a href="#pricing">Low-Cost Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <!-- App-style menu button -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="app-menu">
+        ☰
+      </button>
     </nav>
   </header>
 
+  <!-- App-style menu panel -->
+  <aside class="app-menu" id="app-menu" aria-hidden="true">
+    <div class="app-menu-header">
+      <div class="app-menu-title">
+        <div class="app-menu-brand">DRIVE</div>
+        <div class="app-menu-sub">Quick jump</div>
+      </div>
+
+      <button class="app-menu-close" id="app-menu-close" aria-label="Close menu">✕</button>
+    </div>
+
+    <ul class="app-menu-links" id="app-menu-links">
+      <!-- JS fills this with the page sections automatically -->
+    </ul>
+
+    <div class="app-menu-footer">
+      <a class="btn primary" href="#pricing" data-close-menu="true">Get the $5 Starter Pack</a>
+      <a class="btn secondary" href="#email" data-close-menu="true">Free checklist</a>
+    </div>
+  </aside>
+
+  <!-- Backdrop -->
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
   <!-- Hero -->
-  <section id="hero" class="hero">
+  <section id="hero" class="hero" data-title="Home">
     <div class="hero-content">
-      <h1>Learn Courier Work. Build Your Own Contracting Business.</h1>
+      <p class="kicker">Start here if you’re brand new</p>
+      <h1>Start Courier Work This Week—Then Build a Simple 1099 System.</h1>
+
       <p>
-        DRIVE helps everyday people learn how to earn with courier work and build simple,
-        repeatable income systems using real-world experience, not hype.
+        DRIVE gives you a clear lane (Roady, Instacart, app-based gigs, or local courier roles),
+        plus plug-and-play tracking so you don’t lose money at tax time.
       </p>
 
       <div class="hero-cta">
-        <a class="btn primary" href="#pricing">See Low-Cost Tools</a>
-        <a class="btn secondary" href="#courier-styles">Explore Courier Styles</a>
+        <a class="btn primary" href="#email">Get the free checklist</a>
+        <a class="btn secondary" href="#pricing">See low-cost tools</a>
       </div>
 
-      <p class="hero-tagline">
-        Built for beginners who want clarity, structure, and realistic income paths.
-      </p>
+      <div class="trust-row">
+        <div class="trust-pill">Army Veteran-led</div>
+        <div class="trust-pill">Beginner-friendly</div>
+        <div class="trust-pill">Low-cost</div>
+        <div class="trust-pill">No fluff</div>
+      </div>
     </div>
   </section>
 
+  <!-- Email Capture -->
+  <section id="email" class="section section-alt" data-title="Free Checklist">
+    <h2>Free: “First 7 Days Courier Setup” Checklist</h2>
+    <p class="section-intro">
+      A simple checklist to pick your lane, set income targets, and track mileage + expenses from day one.
+      Delivered instantly.
+    </p>
+
+    <!-- OPTION A: ConvertKit (recommended) -->
+    <!-- Replace action + fields with your ConvertKit form embed values -->
+    <form class="email-form" method="post" action="YOUR_CONVERTKIT_FORM_ACTION_URL">
+      <!-- ConvertKit usually uses hidden fields. Paste them here from ConvertKit embed code. -->
+      <!-- Example:
+      <input type="hidden" name="id" value="1234567">
+      -->
+
+      <label>
+        Email
+        <input type="email" name="email_address" placeholder="you@example.com" required />
+      </label>
+
+      <button type="submit" class="btn primary">Send the checklist</button>
+      <p class="form-note muted">
+        No spam. Unsubscribe anytime.
+      </p>
+    </form>
+
+    <!-- OPTION B: MailerLite -->
+    <!-- If using MailerLite, replace the form above with your MailerLite embed form snippet. -->
+  </section>
+
   <!-- Courier Styles -->
-  <section id="courier-styles" class="section">
+  <section id="courier-styles" class="section" data-title="Courier Styles">
     <h2>Courier Work Styles</h2>
     <p class="section-intro">
-      There are a few common lanes. Start with one, learn the system, then expand.
+      Pick one lane. Run it consistently for 2–4 weeks. Then expand. Here are the most common options:
     </p>
 
     <div class="cards">
       <article class="card">
         <span class="badge">App-Based / 3rd Party</span>
         <h3>Gig Platforms</h3>
-        <p>
-          Fast start. Learn scheduling, routes, and daily income targets. Good for beginners building consistency.
-        </p>
+        <p>Fast start. Learn scheduling, route habits, and daily income targets.</p>
         <ul class="bullets">
           <li>Flexible hours</li>
           <li>Quick learning curve</li>
@@ -74,11 +134,9 @@
       <article class="card">
         <span class="badge">Roady</span>
         <h3>Roady Runs</h3>
-        <p>
-          Delivery-style gigs with a route mindset. Focus on acceptance strategy and stacking efficient runs.
-        </p>
+        <p>Delivery-style gigs with a route mindset. Stack efficient runs and protect your time.</p>
         <ul class="bullets">
-          <li>Route planning habits</li>
+          <li>Acceptance strategy</li>
           <li>Better per-mile decisions</li>
           <li>Consistency beats hype</li>
         </ul>
@@ -87,51 +145,43 @@
       <article class="card">
         <span class="badge">Instacart</span>
         <h3>Instacart</h3>
-        <p>
-          Shopping + delivery lane. Great for learning time management, customer communication, and daily goals.
-        </p>
+        <p>Shopping + delivery. Great for learning speed, communication, and daily goal setting.</p>
         <ul class="bullets">
-          <li>Strong demand in many areas</li>
-          <li>Customer service skills matter</li>
-          <li>Repeatable workflow</li>
+          <li>Demand in many areas</li>
+          <li>Workflow matters</li>
+          <li>Repeatable routine</li>
         </ul>
       </article>
 
       <article class="card">
         <span class="badge">Freelance</span>
         <h3>Fiverr</h3>
-        <p>
-          Build a simple service offer: dispatch help, spreadsheet setup, job tracking, or operations templates.
-        </p>
+        <p>Sell simple services: spreadsheet setup, tracking dashboards, dispatch templates.</p>
         <ul class="bullets">
           <li>Low overhead</li>
-          <li>Template-based services</li>
-          <li>Good for upsells</li>
+          <li>Template-based</li>
+          <li>Good upsells</li>
         </ul>
       </article>
 
       <article class="card">
         <span class="badge">Freelance</span>
         <h3>Indeed</h3>
-        <p>
-          Find contract courier listings and local delivery roles. Learn what companies pay and what they require.
-        </p>
+        <p>Find local courier listings and learn what companies pay + require.</p>
         <ul class="bullets">
+          <li>Clear requirements</li>
           <li>Local opportunities</li>
-          <li>Clear job requirements</li>
-          <li>Great market research</li>
+          <li>Market research</li>
         </ul>
       </article>
 
       <article class="card">
         <span class="badge">Freelance</span>
         <h3>Warehouse Courier Jobs</h3>
-        <p>
-          Steadier work with warehouse/dispatch structure. Great for building consistency and business discipline.
-        </p>
+        <p>Steadier structure. Great for discipline, dispatch habits, and consistent volume.</p>
         <ul class="bullets">
-          <li>More predictable volume</li>
-          <li>Dispatch + timing experience</li>
+          <li>Predictable work</li>
+          <li>Timing discipline</li>
           <li>Systems-first mindset</li>
         </ul>
       </article>
@@ -139,63 +189,195 @@
   </section>
 
   <!-- Digital Tools -->
-  <section id="tools" class="section section-alt">
+  <section id="tools" class="section section-alt" data-title="Digital Tools">
     <h2>Digital Tools We Use (and Teach)</h2>
     <p class="section-intro">
-      Most new contractors lose money by not tracking the basics. These tools keep your business clean.
+      Most beginners don’t fail because they can’t work—they fail because they don’t track.
+      These tools keep your profit clean.
     </p>
 
     <div class="tool-grid">
       <div class="tool">
         <h3>1099 Taxes + Expense Tracking</h3>
-        <p>
-          Simple categories, weekly habit, and a clean record for tax time. No guessing.
-        </p>
+        <p>Simple categories, weekly habit, clean records for tax time.</p>
       </div>
       <div class="tool">
         <h3>Google Sheets</h3>
-        <p>
-          Budgeting, weekly income goals, route notes, and business dashboards.
-        </p>
+        <p>Weekly income targets, dashboards, route notes, job logs.</p>
       </div>
       <div class="tool">
         <h3>Miles Tracker App</h3>
-        <p>
-          Track mileage every day. This is one of the easiest ways to protect your profit.
-        </p>
+        <p>Track mileage daily. It’s one of the easiest ways to protect profit.</p>
       </div>
       <div class="tool">
         <h3>QuickBooks</h3>
-        <p>
-          Great once you have consistent income. Keep books organized and ready to scale.
-        </p>
+        <p>Best once you’re consistent. Clean books when you’re ready to scale.</p>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="section">
+  <section id="pricing" class="section" data-title="Pricing">
     <h2>Low-Cost Digital Products</h2>
     <p class="section-intro">
-      Keep it simple and cheap. Get started today, then upgrade only when you’re ready.
+      Start cheap. Get organized. Upgrade only if you need it.
     </p>
 
     <div class="pricing-grid">
       <article class="price-card">
         <h3>Starter Pack</h3>
         <p class="price">$5</p>
-        <p class="muted">Best for: day-one beginners</p>
+        <p class="muted">Best for: brand new beginners</p>
         <ul class="bullets">
-          <li>Weekly income goal tracker (Sheets)</li>
+          <li>First 7 days plan (simple)</li>
+          <li>Weekly income target tracker</li>
           <li>Mileage + expense checklist</li>
-          <li>Simple “first 7 days” plan</li>
         </ul>
-        <button class="btn primary" data-buy="Starter Pack ($5)">Get Starter Pack</button>
+
+        <!-- Gumroad button (replace href) -->
+        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_STARTER" target="_blank" rel="noopener">
+          Buy on Gumroad
+        </a>
+
+        <!-- Stripe button (replace href) -->
+        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_STARTER" target="_blank" rel="noopener">
+          Buy with Stripe
+        </a>
       </article>
 
       <article class="price-card featured">
         <div class="featured-tag">Most Popular</div>
         <h3>Contractor Toolkit</h3>
         <p class="price">$9</p>
+        <p class="muted">Best for: earning consistently</p>
+        <ul class="bullets">
+          <li>1099 expense tracker (Sheets)</li>
+          <li>Route + time planning sheet</li>
+          <li>Client scripts (text/email)</li>
+        </ul>
 
-  
+        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_TOOLKIT" target="_blank" rel="noopener">
+          Buy on Gumroad
+        </a>
+        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_TOOLKIT" target="_blank" rel="noopener">
+          Buy with Stripe
+        </a>
+      </article>
+
+      <article class="price-card">
+        <h3>Mini Coaching Call</h3>
+        <p class="price">$15</p>
+        <p class="muted">Best for: quick clarity</p>
+        <ul class="bullets">
+          <li>20-minute call</li>
+          <li>Pick your lane + weekly target</li>
+          <li>Fix your tracking setup</li>
+        </ul>
+
+        <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_CALL" target="_blank" rel="noopener">
+          Book via Gumroad
+        </a>
+        <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_CALL" target="_blank" rel="noopener">
+          Book with Stripe
+        </a>
+      </article>
+    </div>
+
+    <p class="fineprint">
+      Tip: Use either Gumroad OR Stripe for each product (you don’t need both). Replace the placeholder links above.
+    </p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section section-alt" data-title="About">
+    <h2>About DRIVE</h2>
+    <p class="section-intro">
+      Built by <strong>Delonte Wiley (Army Veteran)</strong>. This is practical courier education focused on simple systems:
+      pick a lane, run it consistently, track mileage/expenses, and build your routine.
+    </p>
+    <div class="about-points">
+      <div class="about-card">
+        <h3>What you get here</h3>
+        <ul class="bullets">
+          <li>Clear lanes and what to avoid</li>
+          <li>Simple tracking templates</li>
+          <li>Low-cost coaching for quick wins</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h3>What you won’t get</h3>
+        <ul class="bullets">
+          <li>Fake income screenshots</li>
+          <li>“Get rich quick” talk</li>
+          <li>Confusing tool overload</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section" data-title="Contact">
+    <h2>Contact / Get Started</h2>
+    <p class="section-intro">
+      Tell us your vehicle type, schedule, and weekly income goal. We’ll point you to the best starting lane + tools.
+    </p>
+
+    <div class="contact-layout">
+      <div class="contact-details">
+        <h3>DRIVE</h3>
+        <p><strong>Created by:</strong> Delonte Wiley (Army Veteran)</p>
+        <p><strong>Email:</strong> drive@example.com</p>
+        <p><strong>Social:</strong> @drivecourier</p>
+        <p class="muted">Replace placeholders with real info.</p>
+      </div>
+
+      <!-- Option 1: Use a form service (best for beginners)
+           Replace action with your Formspree / Basin / Getform endpoint.
+           Then set their redirect URL to thankyou.html (most services support this).
+      -->
+      <form class="contact-form" id="contact-form" method="post" action="YOUR_FORM_ENDPOINT">
+        <label>
+          Name
+          <input type="text" name="name" placeholder="Your name" required />
+        </label>
+
+        <label>
+          Best Contact (email or phone)
+          <input type="text" name="contact" placeholder="Email or phone number" required />
+        </label>
+
+        <label>
+          What do you want to do?
+          <select name="interest" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Start with app-based gigs</option>
+            <option>Roady strategy</option>
+            <option>Instacart workflow</option>
+            <option>Freelance / contract courier jobs</option>
+            <option>Tracking / taxes / tools setup</option>
+          </select>
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="4" placeholder="Car type, schedule, weekly goal, current lane..." required></textarea>
+        </label>
+
+        <button type="submit" class="btn primary">Send Message</button>
+        <p class="form-note" id="form-note" aria-live="polite"></p>
+
+        <!-- If your form service supports redirect fields, add it here.
+             Example (varies by provider):
+             <input type="hidden" name="_redirect" value="thankyou.html">
+        -->
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> DRIVE. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
