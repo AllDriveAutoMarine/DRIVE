@@ -1,63 +1,79 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile nav toggle
-  const navToggle = document.getElementById("nav-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-
-    // Close nav on link click (mobile)
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => navLinks.classList.remove("show"));
-    });
-  }
-
-  // Dynamic year
+  // Year
   const yearSpan = document.getElementById("year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // Smooth scroll for internal links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (event) {
-      const targetId = this.getAttribute("href").slice(1);
-      const target = document.getElementById(targetId);
-      if (target) {
-        event.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
+  // Menu elements
+  const navToggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("app-menu");
+  const closeBtn = document.getElementById("app-menu-close");
+  const backdrop = document.getElementById("backdrop");
+  const menuLinks = document.getElementById("app-menu-links");
+
+  function openMenu() {
+    if (!menu || !backdrop || !navToggle) return;
+    menu.classList.add("show");
+    backdrop.classList.add("show");
+    menu.setAttribute("aria-hidden", "false");
+    navToggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    if (!menu || !backdrop || !navToggle) return;
+    menu.classList.remove("show");
+    backdrop.classList.remove("show");
+    menu.setAttribute("aria-hidden", "true");
+    navToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openMenu);
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+  if (backdrop) backdrop.addEventListener("click", closeMenu);
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
   });
 
-  // Pricing button behavior (placeholder for real checkout links)
-  document.querySelectorAll("button[data-buy]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const product = btn.getAttribute("data-buy");
-      const note = document.getElementById("form-note");
-      if (note) {
-        note.textContent = `You selected: ${product}. Add a checkout link (Gumroad/Payhip/Stripe) when ready.`;
-      } else {
-        alert(`You selected: ${product}. Add a checkout link when ready.`);
-      }
-      // Later: window.location.href = "YOUR_CHECKOUT_LINK";
-    });
+  // Smooth scroll for internal links + close menu after click
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const targetId = link.getAttribute("href").slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth" });
+
+    // close menu when clicking any menu link or footer buttons
+    closeMenu();
   });
 
-  // Fake form submit (for now)
-  const form = document.getElementById("contact-form");
-  const formNote = document.getElementById("form-note");
+  // Highlight current section in menu
+  if (menuLinks && "IntersectionObserver" in window) {
+    const linkMap = new Map();
+    menuLinks.querySelectorAll("a").forEach((a) => linkMap.set(a.dataset.sectionId, a));
 
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (formNote) {
-        formNote.textContent = "Message sent (demo). Hook this to email or a form service when ready.";
-      } else {
-        alert("Message sent (demo).");
-      }
-      form.reset();
-    });
+    const sections = Array.from(document.querySelectorAll("section[id]"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          const link = linkMap.get(id);
+          if (!link) return;
+          linkMap.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
   }
 });
-
