@@ -9,7 +9,6 @@
     content="DRIVE helps new couriers start earning fast and stay organized with simple systems, low-cost tools, and practical coaching—no hype."
   />
 
-  <!-- Open Graph (better CTR when shared) -->
   <meta property="og:title" content="DRIVE | Start Courier Work + Build a 1099 System" />
   <meta property="og:description" content="Pick a lane, earn your first cash, and track mileage/expenses like a pro. Low-cost templates + coaching." />
   <meta property="og:type" content="website" />
@@ -25,7 +24,7 @@
     </div>
 
     <nav class="nav">
-      <!-- App-style menu button -->
+      <!-- Menu button (top right) -->
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="app-menu">
         ☰
       </button>
@@ -37,19 +36,26 @@
     <div class="app-menu-header">
       <div class="app-menu-title">
         <div class="app-menu-brand">DRIVE</div>
-        <div class="app-menu-sub">Quick jump</div>
+        <div class="app-menu-sub">Jump to a section</div>
       </div>
 
       <button class="app-menu-close" id="app-menu-close" aria-label="Close menu">✕</button>
     </div>
 
+    <!-- FULL section list (static, no guessing) -->
     <ul class="app-menu-links" id="app-menu-links">
-      <!-- JS fills this with the page sections automatically -->
+      <li><a href="#hero" data-section-id="hero">Home</a></li>
+      <li><a href="#email" data-section-id="email">Free Checklist</a></li>
+      <li><a href="#courier-styles" data-section-id="courier-styles">Courier Styles</a></li>
+      <li><a href="#tools" data-section-id="tools">Digital Tools</a></li>
+      <li><a href="#pricing" data-section-id="pricing">Pricing</a></li>
+      <li><a href="#about" data-section-id="about">About</a></li>
+      <li><a href="#contact" data-section-id="contact">Contact</a></li>
     </ul>
 
     <div class="app-menu-footer">
       <a class="btn primary" href="#pricing" data-close-menu="true">Get the $5 Starter Pack</a>
-      <a class="btn secondary" href="#email" data-close-menu="true">Free checklist</a>
+      <a class="btn secondary" href="#courier-styles" data-close-menu="true">Start with a lane</a>
     </div>
   </aside>
 
@@ -57,19 +63,19 @@
   <div class="backdrop" id="backdrop" aria-hidden="true"></div>
 
   <!-- Hero -->
-  <section id="hero" class="hero" data-title="Home">
+  <section id="hero" class="hero">
     <div class="hero-content">
       <p class="kicker">Start here if you’re brand new</p>
       <h1>Start Courier Work This Week—Then Build a Simple 1099 System.</h1>
 
       <p>
-        DRIVE gives you a clear lane (Roady, Instacart, app-based gigs, or local courier roles),
+        DRIVE gives you a clear lane (Roadie, Instacart, app-based gigs, or local courier roles),
         plus plug-and-play tracking so you don’t lose money at tax time.
       </p>
 
       <div class="hero-cta">
         <a class="btn primary" href="#email">Get the free checklist</a>
-        <a class="btn secondary" href="#pricing">See low-cost tools</a>
+        <a class="btn secondary" href="#courier-styles">Explore courier styles</a>
       </div>
 
       <div class="trust-row">
@@ -78,42 +84,43 @@
         <div class="trust-pill">Low-cost</div>
         <div class="trust-pill">No fluff</div>
       </div>
+
+      <!-- Quick outbound links -->
+      <div class="quick-links">
+        <a class="btn ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+        <a class="btn ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
+        <a class="btn ghost" href="https://www.indeed.com/" target="_blank" rel="noopener">Indeed</a>
+      </div>
     </div>
   </section>
 
   <!-- Email Capture -->
-  <section id="email" class="section section-alt" data-title="Free Checklist">
+  <section id="email" class="section section-alt">
     <h2>Free: “First 7 Days Courier Setup” Checklist</h2>
     <p class="section-intro">
       A simple checklist to pick your lane, set income targets, and track mileage + expenses from day one.
       Delivered instantly.
     </p>
 
-    <!-- OPTION A: ConvertKit (recommended) -->
-    <!-- Replace action + fields with your ConvertKit form embed values -->
     <form class="email-form" method="post" action="YOUR_CONVERTKIT_FORM_ACTION_URL">
-      <!-- ConvertKit usually uses hidden fields. Paste them here from ConvertKit embed code. -->
-      <!-- Example:
-      <input type="hidden" name="id" value="1234567">
-      -->
-
       <label>
         Email
         <input type="email" name="email_address" placeholder="you@example.com" required />
       </label>
 
       <button type="submit" class="btn primary">Send the checklist</button>
-      <p class="form-note muted">
-        No spam. Unsubscribe anytime.
-      </p>
-    </form>
+      <p class="form-note muted">No spam. Unsubscribe anytime.</p>
 
-    <!-- OPTION B: MailerLite -->
-    <!-- If using MailerLite, replace the form above with your MailerLite embed form snippet. -->
+      <div class="inline-links">
+        <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie info</a>
+        <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
+        <a class="btn small ghost" href="https://www.indeed.com/" target="_blank" rel="noopener">Search Indeed</a>
+      </div>
+    </form>
   </section>
 
   <!-- Courier Styles -->
-  <section id="courier-styles" class="section" data-title="Courier Styles">
+  <section id="courier-styles" class="section">
     <h2>Courier Work Styles</h2>
     <p class="section-intro">
       Pick one lane. Run it consistently for 2–4 weeks. Then expand. Here are the most common options:
@@ -132,14 +139,19 @@
       </article>
 
       <article class="card">
-        <span class="badge">Roady</span>
-        <h3>Roady Runs</h3>
+        <span class="badge">Roadie</span>
+        <h3>Roadie Runs</h3>
         <p>Delivery-style gigs with a route mindset. Stack efficient runs and protect your time.</p>
         <ul class="bullets">
           <li>Acceptance strategy</li>
           <li>Better per-mile decisions</li>
           <li>Consistency beats hype</li>
         </ul>
+        <div class="card-actions">
+          <a class="btn small primary" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">
+            Sign up / learn Roadie
+          </a>
+        </div>
       </article>
 
       <article class="card">
@@ -162,6 +174,11 @@
           <li>Template-based</li>
           <li>Good upsells</li>
         </ul>
+        <div class="card-actions">
+          <a class="btn small primary" href="https://www.fiverr.com/" target="_blank" rel="noopener">
+            Explore Fiverr
+          </a>
+        </div>
       </article>
 
       <article class="card">
@@ -173,6 +190,11 @@
           <li>Local opportunities</li>
           <li>Market research</li>
         </ul>
+        <div class="card-actions">
+          <a class="btn small primary" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">
+            Find courier jobs
+          </a>
+        </div>
       </article>
 
       <article class="card">
@@ -184,12 +206,24 @@
           <li>Timing discipline</li>
           <li>Systems-first mindset</li>
         </ul>
+        <div class="card-actions">
+          <a class="btn small primary" href="https://www.indeed.com/jobs?q=warehouse+courier" target="_blank" rel="noopener">
+            Search warehouse courier
+          </a>
+        </div>
       </article>
+    </div>
+
+    <!-- Extra lane buttons -->
+    <div class="lane-buttons">
+      <a class="btn ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie Driver Page</a>
+      <a class="btn ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Start on Fiverr</a>
+      <a class="btn ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Courier jobs on Indeed</a>
     </div>
   </section>
 
   <!-- Digital Tools -->
-  <section id="tools" class="section section-alt" data-title="Digital Tools">
+  <section id="tools" class="section section-alt">
     <h2>Digital Tools We Use (and Teach)</h2>
     <p class="section-intro">
       Most beginners don’t fail because they can’t work—they fail because they don’t track.
@@ -214,10 +248,16 @@
         <p>Best once you’re consistent. Clean books when you’re ready to scale.</p>
       </div>
     </div>
+
+    <div class="lane-buttons">
+      <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+      <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
+      <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
+    </div>
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="section" data-title="Pricing">
+  <section id="pricing" class="section">
     <h2>Low-Cost Digital Products</h2>
     <p class="section-intro">
       Start cheap. Get organized. Upgrade only if you need it.
@@ -234,15 +274,17 @@
           <li>Mileage + expense checklist</li>
         </ul>
 
-        <!-- Gumroad button (replace href) -->
         <a class="btn primary" href="YOUR_GUMROAD_PRODUCT_URL_STARTER" target="_blank" rel="noopener">
           Buy on Gumroad
         </a>
-
-        <!-- Stripe button (replace href) -->
         <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_STARTER" target="_blank" rel="noopener">
           Buy with Stripe
         </a>
+
+        <div class="inline-links">
+          <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Try Roadie</a>
+          <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
+        </div>
       </article>
 
       <article class="price-card featured">
@@ -262,6 +304,11 @@
         <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_TOOLKIT" target="_blank" rel="noopener">
           Buy with Stripe
         </a>
+
+        <div class="inline-links">
+          <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr ideas</a>
+          <a class="btn small ghost" href="https://www.indeed.com/" target="_blank" rel="noopener">Indeed</a>
+        </div>
       </article>
 
       <article class="price-card">
@@ -280,6 +327,11 @@
         <a class="btn secondary" href="YOUR_STRIPE_PAYMENT_LINK_CALL" target="_blank" rel="noopener">
           Book with Stripe
         </a>
+
+        <div class="inline-links">
+          <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+          <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
+        </div>
       </article>
     </div>
 
@@ -289,12 +341,13 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="section section-alt" data-title="About">
+  <section id="about" class="section section-alt">
     <h2>About DRIVE</h2>
     <p class="section-intro">
-      Built by <strong>Delonte Wiley (Army Veteran)</strong>. This is practical courier education focused on simple systems:
+      Built by <strong>Delonte Wiley (Army Veteran)</strong>. Practical courier education focused on:
       pick a lane, run it consistently, track mileage/expenses, and build your routine.
     </p>
+
     <div class="about-points">
       <div class="about-card">
         <h3>What you get here</h3>
@@ -304,19 +357,26 @@
           <li>Low-cost coaching for quick wins</li>
         </ul>
       </div>
+
       <div class="about-card">
         <h3>What you won’t get</h3>
         <ul class="bullets">
           <li>Fake income screenshots</li>
           <li>“Get rich quick” talk</li>
-          <li>Confusing tool overload</li>
+          <li>Tool overload</li>
         </ul>
       </div>
+    </div>
+
+    <div class="lane-buttons">
+      <a class="btn ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+      <a class="btn ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
+      <a class="btn ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed courier jobs</a>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section" data-title="Contact">
+  <section id="contact" class="section">
     <h2>Contact / Get Started</h2>
     <p class="section-intro">
       Tell us your vehicle type, schedule, and weekly income goal. We’ll point you to the best starting lane + tools.
@@ -329,12 +389,14 @@
         <p><strong>Email:</strong> drive@example.com</p>
         <p><strong>Social:</strong> @drivecourier</p>
         <p class="muted">Replace placeholders with real info.</p>
+
+        <div class="inline-links">
+          <a class="btn small ghost" href="https://www.roadie.com/drivers/" target="_blank" rel="noopener">Roadie</a>
+          <a class="btn small ghost" href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr</a>
+          <a class="btn small ghost" href="https://www.indeed.com/jobs?q=courier" target="_blank" rel="noopener">Indeed</a>
+        </div>
       </div>
 
-      <!-- Option 1: Use a form service (best for beginners)
-           Replace action with your Formspree / Basin / Getform endpoint.
-           Then set their redirect URL to thankyou.html (most services support this).
-      -->
       <form class="contact-form" id="contact-form" method="post" action="YOUR_FORM_ENDPOINT">
         <label>
           Name
@@ -351,7 +413,7 @@
           <select name="interest" required>
             <option value="" disabled selected>Select one</option>
             <option>Start with app-based gigs</option>
-            <option>Roady strategy</option>
+            <option>Roadie strategy</option>
             <option>Instacart workflow</option>
             <option>Freelance / contract courier jobs</option>
             <option>Tracking / taxes / tools setup</option>
@@ -365,11 +427,6 @@
 
         <button type="submit" class="btn primary">Send Message</button>
         <p class="form-note" id="form-note" aria-live="polite"></p>
-
-        <!-- If your form service supports redirect fields, add it here.
-             Example (varies by provider):
-             <input type="hidden" name="_redirect" value="thankyou.html">
-        -->
       </form>
     </div>
   </section>
