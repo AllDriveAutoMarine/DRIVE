@@ -3,77 +3,78 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearSpan = document.getElementById("year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // Menu elements
-  const navToggle = document.getElementById("nav-toggle");
-  const menu = document.getElementById("app-menu");
-  const closeBtn = document.getElementById("app-menu-close");
-  const backdrop = document.getElementById("backdrop");
-  const menuLinks = document.getElementById("app-menu-links");
+  // Sidebar elements
+  const toggle = document.getElementById("nav-toggle");
+  const sidebar = document.getElementById("sidebar");
+  const closeBtn = document.getElementById("sidebar-close");
+  const overlay = document.getElementById("overlay");
+  const sidebarLinks = document.querySelectorAll(".sidebar-links a");
 
-  function openMenu() {
-    if (!menu || !backdrop || !navToggle) return;
-    menu.classList.add("show");
-    backdrop.classList.add("show");
-    menu.setAttribute("aria-hidden", "false");
-    navToggle.setAttribute("aria-expanded", "true");
+  function openSidebar() {
+    if (!sidebar || !overlay || !toggle) return;
+    sidebar.classList.add("show");
+    overlay.classList.add("show");
+    sidebar.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
   }
 
-  function closeMenu() {
-    if (!menu || !backdrop || !navToggle) return;
-    menu.classList.remove("show");
-    backdrop.classList.remove("show");
-    menu.setAttribute("aria-hidden", "true");
-    navToggle.setAttribute("aria-expanded", "false");
+  function closeSidebar() {
+    if (!sidebar || !overlay || !toggle) return;
+    sidebar.classList.remove("show");
+    overlay.classList.remove("show");
+    sidebar.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }
 
-  if (navToggle) navToggle.addEventListener("click", openMenu);
-  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-  if (backdrop) backdrop.addEventListener("click", closeMenu);
+  if (toggle) toggle.addEventListener("click", openSidebar);
+  if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+  if (overlay) overlay.addEventListener("click", closeSidebar);
 
   // Close on Escape
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+    if (e.key === "Escape") closeSidebar();
   });
 
-  // Smooth scroll for internal links + close menu after click
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest('a[href^="#"]');
-    if (!link) return;
+  // Smooth scroll for sidebar links + close
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
 
-    const targetId = link.getAttribute("href").slice(1);
-    const target = document.getElementById(targetId);
-    if (!target) return;
+      const targetId = href.slice(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
 
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth" });
-
-    // close menu when clicking any menu link or footer buttons
-    closeMenu();
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+      closeSidebar();
+    });
   });
 
-  // Highlight current section in menu
-  if (menuLinks && "IntersectionObserver" in window) {
-    const linkMap = new Map();
-    menuLinks.querySelectorAll("a").forEach((a) => linkMap.set(a.dataset.sectionId, a));
+  // Highlight current section in sidebar
+  if ("IntersectionObserver" in window) {
+    const map = new Map();
+    sidebarLinks.forEach((a) => map.set(a.dataset.sectionId, a));
 
     const sections = Array.from(document.querySelectorAll("section[id]"));
 
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           const id = entry.target.id;
-          const link = linkMap.get(id);
-          if (!link) return;
-          linkMap.forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
+          const a = map.get(id);
+          if (!a) return;
+          map.forEach((link) => link.classList.remove("active"));
+          a.classList.add("active");
         });
       },
       { threshold: 0.35 }
     );
 
-    sections.forEach((s) => observer.observe(s));
+    sections.forEach((s) => obs.observe(s));
   }
 });
+          
